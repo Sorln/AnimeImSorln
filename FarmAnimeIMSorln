@@ -1,0 +1,18 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Mini Anime Impact Simulator Farm    (Sorln#3037)", "BloodTheme")
+local Tab = Window:NewTab("Farm")
+local Section = Tab:NewSection("<3")
+Section:NewButton("Start Mana AutoFarm", "", function()
+    print("Clicked")
+    getgenv().farmer = true;
+
+while wait() do
+    if getgenv().farmer == true then
+         game:GetService("ReplicatedStorage").Remotes.TappingEvent:FireServer()
+    end
+end
+end)
+Section:NewButton("Turn Off Mana AutoFarm", "", function()
+    print("Clicked")
+    getgenv().farmer = false;
+end)
